@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+         stage('SCM') {
             steps {
-                echo 'Hello World'
+                git url: 'https://github.com/fabricenankam/simple.git'
+            }
+        }
+        stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv(credentialsId: 'Sonarqube-token') {
+                       sh 'mvn clean package sonar:sonar'
+                }
             }
         }
     }
