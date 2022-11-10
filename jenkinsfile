@@ -9,7 +9,7 @@ pipeline {
         }
         stage('build && SonarQube analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'Sonarqube-token', installationName:'sonarqube') {
+                withSonarQubeEnv(credentialsId: 'Sonarqube-token', installationName:'sonarqube 8.9.10') {
                        sh 'mvn clean package sonar:sonar'
                 }
             }

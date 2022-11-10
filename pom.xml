@@ -16,6 +16,14 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+  <distributionManagement>
+      <repository>
+      <id>nexus_repository</id>
+      <name>nexus repository</name>
+      <url>http://localhost:8081/repository/maven-central-repository/</url>
+      </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -24,4 +32,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 </project>
